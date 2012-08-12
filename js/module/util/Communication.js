@@ -10,6 +10,12 @@ define(["lib.use!lib.debug", "util.Constants", "jquery", "util.Storage"], functi
 	var Module = function() {
 		var self = this;
 
+		self.initialize = function() {
+			jQuery.ajaxSetup({
+				timeout: 5000
+			});
+		};
+
 		self.ajaxSites = function() {
 			debug.info("util.Communication", "ajaxSites", "Fetching");
 
@@ -232,6 +238,9 @@ define(["lib.use!lib.debug", "util.Constants", "jquery", "util.Storage"], functi
 
 			return userTimelineData;
 		};
+
+		debug.log("util.Communication", "Calling initialize");
+		self.initialize();
 
 		return self;
 	};

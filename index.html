@@ -161,14 +161,16 @@
 
 <script type="text/html" id="template-skyscraper-stackexchange">
     <div class="span4 well">
-
-      <div class="row-fluid" data-bind="ifnot: isEnabled">
+      <div class="skyscraper">
+        <div class="row-fluid" data-bind="ifnot: isEnabled">
         <div class="span12">
-          <button class="btn span12" data-bind="click: toggleEnabled">Enable</button>
+          <div class="enable-button" data-bind="click: toggleEnabled">
+            <i class="icon-plus"></i>
+          </div>
         </div>
-      </div>
+        </div>
 
-      <div data-bind="if: isEnabled">
+        <div data-bind="if: isEnabled">
         <div class="row-fluid">
           <div class="span5">
             <div class="btn-group pull-left">
@@ -266,6 +268,7 @@
           </div>
         </div>
         <!-- /ko -->
+        </div>
       </div>
     </div>
 

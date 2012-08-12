@@ -12,6 +12,8 @@ function(	jQuery,		debug,								skyscraperViewmodel,		ko,								bootstrap) {
 
 		debug.info("Core", "initialize", "Applying bindings...");
 		ko.applyBindings(skyscraperViewmodel.getModule());
+
+		jQuery("[title]").tooltip();
 	};
 
 	/**
