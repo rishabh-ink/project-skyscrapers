@@ -112,6 +112,10 @@ define({
 			availableViews: {
 				questions: "Questions",
 				timeline: "Timeline"
+			},
+			availableSubViews: {
+				questionsList: "questionsList",
+				answersList: "answersList"
 			}
 		}
 	},

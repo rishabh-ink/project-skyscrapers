@@ -22,8 +22,6 @@ define(["lib.use!lib.debug", "lib.knockoutjs"], function(debug, ko) {
 		self.title = ko.observable();
 		self.user_id = ko.observable();
 
-
-
 		self.applyMappings = function(value) {
 			if(typeof value.badge_id !== "undefined")						{	self.badge_id(value.badge_id);	}
 			if(typeof value.comment_id !== "undefined")					{	self.comment_id(value.comment_id);	}

@@ -54,6 +54,7 @@ define(["lib.use!lib.debug", "lib.knockoutjs", "model.item.Owner", "model.item.C
 			newOwner.applyMappings(value.owner);
 			self.owner(newOwner);
 
+			/*
 			if(typeof value.comments !== "undefined") {
 				ko.utils.arrayForEach(value.comments, function(comment) {
 					var newComment = Comment.getModule();
@@ -69,6 +70,7 @@ define(["lib.use!lib.debug", "lib.knockoutjs", "model.item.Owner", "model.item.C
 					self.answers.push(newAnswer);
 				});
 			}
+			*/
 		};
 
 		return self;
