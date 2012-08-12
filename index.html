@@ -1,0 +1,285 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IEMobile 7 ]>    <html class="no-js iem7" lang="en"> <![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Project Skyscrapers</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile viewport optimization h5bp.com/ad -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width">
+
+  <!-- Home screen icon  Mathias Bynens mathiasbynens.be/notes/touch-icons -->
+  <!-- For third generation iPad Retina Display -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png" />
+  <!-- For iPhone 4 with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png" />
+  <!-- For first-generation iPad: -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png" />
+  <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+  <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png" />
+  <!-- For nokia devices: -->
+  <link rel="shortcut icon" href="img/touch/apple-touch-icon.png" />
+
+  <!-- iOS web app, delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
+  <!-- <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
+
+  <!-- The script prevents links from opening in mobile safari. https://gist.github.com/1042026 -->
+  <!-- <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script> -->
+
+  <!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
+  <meta http-equiv="cleartype" content="on">
+
+	<!-- Use SimpLESS (Win/Linux/Mac) or LESS.app (Mac) to compile our .less files
+  to style.css.
+
+  <link rel="stylesheet/less" href="less/style.less">
+	<script src="js/libs/less-1.3.0.min.js"></script>
+  -->
+
+  <!-- Using less.js to do some {less} crunchin'! -->
+	<link rel="stylesheet" href="less/style.css">
+
+	<script src="js/lib/modernizr/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+</head>
+<body>
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+  <header>
+    <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="#">stack.deck</a>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    </div>
+  </header>
+
+  <div class="container-fluid page">
+
+    <div class="row-fluid">
+      <div data-bind="template: { name: 'template-skyscraper-stackexchange', foreach: skyscrapers }"></div>
+    </div>
+
+  </div> <!-- /.container -->
+
+  <hr />
+
+  <footer>
+    <p><small>Created by <a href="http://rishabhsrao.github.com">Rishabh Rao</a>.</small></p>
+  </footer>
+
+
+<!-- scripts concatenated and minified via ant build script-->
+<script src="js/lib/requirejs/require.js" data-main="js/script"></script>
+<!-- end scripts-->
+
+<script type="text/html" id="template-timeline">
+  <li class="timeline-list-item">
+    <div class="row-fluid">
+      <div class="span1">
+      </div>
+      <div class="span10">
+        <div class="row-fluid">
+          <div class="span12">
+            <h6><a data-bind="text: timeline_type"></a></h6>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12">
+            <h4><a data-bind="html: title, attr: { href: link }"></a></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</script>
+
+<script type="text/html" id="template-questions">
+  <li class="question-list-item">
+    <div class="row-fluid">
+      <div class="span2">
+        <a class="thumbnail" href="javascript:void(0)" data-bind="attr: { href: owner().link }"><img data-bind="attr: { src: owner().profile_image, alt: owner().display_name, title: owner().display_name }" /></a>
+      </div>
+      <div class="span10">
+        <div class="row-fluid">
+          <div class="span12">
+            <h4><a data-bind="html: title, attr: { href: link }"></a></h4>
+            <ul data-bind="foreach: tags" class="unstyled tags-list">
+              <li class="tags-list-item">
+                <a href="javascript:void(0)"><span class="label label-info" data-bind="text: $data"></span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <div class="span12">
+            <a data-bind="text: owner().display_name, attr: { href: owner().link }"></a>
+            <span class="badge badge-success" data-bind="text: owner().reputation" title="Reputation"></span>
+          </div>
+        </div>
+
+        <div class="row-fluid">
+          <div class="span2" title="Score"><i class="icon-certificate"></i> <span class="" data-bind="text: score"></span></div>
+          <div class="span2" title="Answer count"><i class="icon-ok-sign"></i> <span class="" data-bind="text: answer_count"></span></div>
+          <div class="span2" title="Up vote count"><i class="icon-circle-arrow-up"></i> <span class="" data-bind="text: up_vote_count"></span></div>
+          <div class="span2" title="Favorite count"><i class="icon-star"></i> <span class="" data-bind="text: favorite_count"></span></div>
+          <div class="span2" title="View count"><i class="icon-eye-open"></i> <span class="" data-bind="text: view_count"></span></div>
+
+          <!-- ko if: is_answered -->
+          <div class="span2" title="Answered"><i class="icon-ok"></i></div>
+          <!-- /ko -->
+          <!-- ko ifnot: is_answered -->
+          <div class="span2" title="Not answered"><i class="icon-remove"></i></div>
+          <!-- /ko -->
+        </div>
+      </div>
+    </div>
+  </li>
+</script>
+
+<script type="text/html" id="template-skyscraper-stackexchange">
+    <div class="span4 well">
+
+      <div class="row-fluid" data-bind="ifnot: isEnabled">
+        <div class="span12">
+          <button class="btn span12" data-bind="click: toggleEnabled">Enable</button>
+        </div>
+      </div>
+
+      <div data-bind="if: isEnabled">
+        <div class="row-fluid">
+          <div class="span5">
+            <div class="btn-group pull-left">
+              <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-white icon-eye-open"></i>&nbsp;<span data-bind="text: currentView"></span>&nbsp;<span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li data-bind="click: setView.bind($data, 'Questions')"><a href="javascript:void(0)">Questions</a></li>
+                <li data-bind="click: setView.bind($data, 'Timeline')"><a href="javascript:void(0)">Timeline</a></li>
+                <li class="divider"></li>
+                <li><a href="javascript:void(0)">Newest <span class="pull-right badge badge-info">32</span></a></li>
+                <li><a href="javascript:void(0)">Featured</a></li>
+                <li><a href="javascript:void(0)">Active</a></li>
+                <li><a href="javascript:void(0)">Unanswered</a></li>
+                <li><a href="javascript:void(0)">Highest voted</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="span7">
+            <div class="btn-group pull-right">
+              <button class="btn btn-mini"><i class="icon-white icon-edit"></i> Edit</button>
+              <button class="btn btn-mini" data-bind="click: destroySkyscraper"><i class="icon-white icon-remove-sign"></i> Close</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row-fluid">
+          <div class="span12">
+            <form class="form-vertical">
+              <fieldset class="skyscraper-fieldset">
+                <div class="row-fluid">
+                  <div class="span12">
+                    <div class="control-group">
+                      <div class="control-label">
+                      </div>
+                      <div class="controls">
+                        <select id="select-site" class="span12" data-bind="options: content.views.common.meta.availableSites, optionsValue: 'api_site_parameter', optionsText: 'name', value: site, select2: { allowClear: true }"></select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="skyscraper-fieldset">
+                <div class="row-fluid">
+                  <div class="span10">
+                    <div class="control-group">
+
+                      <div class="controls">
+                        <!-- ko if: isViewQuestions -->
+                        <input id="input-tags" type="hidden" data-bind="value: content.views.questions.params.tags, select2: { minimumInputLength: 2, query: queryTags, multiple: true, maximumSelectionSize: 5, placehoder: 'Type some tags', allowClear: true }" class="span12" />
+                        <!-- /ko -->
+
+                        <!-- ko if: isViewTimeline -->
+                        <input id="input-users" type="hidden" data-bind="value: content.views.timeline.params.userIds, select2: { minimumInputLength: 2, query: queryUsers, multiple: true, maximumSelectionSize: 5, placehoder: 'Type some user names', allowClear: true }" class="span12" />
+                        <!-- /ko -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="span2">
+                    <div class="controls">
+                      <!-- ko if: isViewQuestions -->
+                      <button class="btn btn-primary pull-right" data-bind="click: queryQuestions">Go!</button>
+                      <!-- /ko -->
+
+                      <!-- ko if: isViewTimeline -->
+                      <button class="btn btn-primary pull-right" data-bind="click: queryUserTimeline">Go!</button>
+                      <!-- /ko -->
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+
+        <hr />
+
+        <!-- ko if: isViewQuestions -->
+        <div class="row-fluid">
+          <div class="span12">
+            <div class="questions-list">
+                <ul data-bind="template: { name: 'template-questions', foreach: content.views.questions.data.questions }" class="unstyled">
+                </ul>
+            </div>
+          </div>
+        </div>
+        <!-- /ko -->
+
+        <!-- ko if: isViewTimeline -->
+        <div class="row-fluid">
+          <div class="span12">
+            <div class="timeline-list">
+              <ul data-bind="template: { name: 'template-timeline', foreach: content.views.timeline.data.timelineEvents }" class="unstyled">
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- /ko -->
+      </div>
+    </div>
+
+</script>
+
+<!--
+<script>
+	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+-->
+
+</body>
+</html>
+
