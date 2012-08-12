@@ -14,6 +14,7 @@ require.config({
 		'lib.bootstrap.carousel': "lib/bootstrap/carousel",
 		'lib.bootstrap.dropdown': "lib/bootstrap/dropdown",
 		'lib.bootstrap.tooltip': "lib/bootstrap/tooltip",
+		'lib.timeago': "lib/timeago/timeago",
 		'lib.debug': "lib/ba.debug/ba.debug", // benalman.com/code/projects/javascript-debug
 		'lib.knockoutjs': "lib/knockoutjs/knockout-2.1.0.debug", // knockoutjs.com
 		'lib.select2': "lib/select2/select2", // ivaynberg.github.com/select2
@@ -73,6 +74,11 @@ require.config({
 			]
 		},
 
+		'lib.timeago': {
+			deps: [
+				'jquery'
+			]
+		},
 
 		'lib.bootstrap.tooltip': {
 			deps: [
@@ -146,6 +152,7 @@ require.config({
 				'lib.use!lib.select2',
 				'lib.use!lib.bootstrap',
 				'lib.bootstrap.tooltip',
+				'lib.timeago',
 				'lib.bootstrap.dropdown',
 				'util.Communication',
 				'util.ErrorHandler',

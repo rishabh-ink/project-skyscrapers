@@ -1,6 +1,6 @@
 "use strict";
 
-define([	"jquery", "lib.use!lib.debug",	"viewmodel.Skyscraper",	"lib.knockoutjs",	"lib.bootstrap", "lib.bootstrap.carousel", "lib.bootstrap.dropdown"],
+define([	"jquery", "lib.use!lib.debug",	"viewmodel.Skyscraper",	"lib.knockoutjs",	"lib.bootstrap", "lib.bootstrap.carousel", "lib.bootstrap.dropdown", "lib.timeago"],
 function(	jQuery,		debug,								skyscraperViewmodel,		ko,								bootstrap) {
 	debug.log("Core", "Loading");
 	/**
@@ -8,7 +8,6 @@ function(	jQuery,		debug,								skyscraperViewmodel,		ko,								bootstrap) {
 	 */
 	var initialize = function() {
 		debug.info("Core", "Initializing Core.");
-
 
 		debug.info("Core", "initialize", "Applying bindings...");
 		ko.applyBindings(skyscraperViewmodel.getModule());

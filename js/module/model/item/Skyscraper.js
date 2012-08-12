@@ -122,6 +122,8 @@ define(["lib.use!lib.debug", "lib.knockoutjs", "model.item.Question", "util.Comm
 
 		self.queryQuestions = function() {
 			debug.log("model.item.Skyscraper", "queryQuestions", "Querying for questions", self.site(), self.content.views.questions.params.tags());
+
+			jQuery(".context-help").addClass("hide");
 			var rawQuestions = self.communication.ajaxQuestions(self.site(), self.content.views.questions.params.tags(), self.content.views.questions.params.sort());
 
 			debug.log("model.item.Skyscraper", "queryQuestions", "Processing raw questions", rawQuestions);
@@ -189,6 +191,10 @@ define(["lib.use!lib.debug", "lib.knockoutjs", "model.item.Question", "util.Comm
 		self.setView = function(whichView, data) {
 			debug.log("model.item.Skyscraper", "setView", { data: data, whichView: whichView, currentView: self.currentView() });
 			self.currentView(whichView);
+		};
+
+		self.postProcess = function(data, el) {
+			debug.log("model.item.Skyscraper", "postProcess", data, el);
 		};
 
 		debug.log("model.item.Skyscraper", "Calling initialize");
